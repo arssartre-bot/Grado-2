@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación de Grado</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaf2ff;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Sobre */
+.envelope {
+  width: 320px;
+  height: 200px;
+  background: #1e3a8a;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform .4s ease-in-out;
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+.envelope:before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 200px;
+  background: #1d4ed8;
+  clip-path: polygon(0 0, 100% 0, 50% 55%);
+}
+
+/* Mensaje oculto */
+#card {
+  width: 300px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  display: none;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: fade .5s ease;
+}
+
+@keyframes fade {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+h2 {
+  color: #1e40af;
+}
+
+button {
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+/* Sombrero */
+.cap {
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="envelope" onclick="openInvite()">
+  <div class="cap">🎓</div>
+</div>
+
+<div id="card">
+  <h2>🎓 Invitación Especial 🎓</h2>
+  <p>Hola Andrés 🤍</p>
+  <p>Me graduo y quiero que seas parte de este momento tan importante para mí.</p>
+  <p><b>📅 Fecha:</b> 15 de diciembre</p>
+  <p><b>📍 Lugar:</b> (aquí pones el lugar)</p>
+  <p><b>🕒 Hora:</b> (aquí pones la hora)</p>
+  <p>Será un honor que me acompañes 💫</p>
+  <button onclick="closeInvite()">Cerrar</button>
+</div>
+
+<script>
+function openInvite(){
+  document.querySelector('.envelope').style.display = "none";
+  document.getElementById('card').style.display = "block";
+}
+
+function closeInvite(){
+  document.getElementById('card').style.display = "none";
+  document.querySelector('.envelope').style.display = "block";
+}
+</script>
+
+</body>
+</html>
